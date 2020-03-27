@@ -8,15 +8,15 @@ class Simulation():
 
     def __init__(self):
         pygame.init()
-        self.size = 700
-        self.display = pygame.display.set_mode((self.size, self.size))
-        pygame.display.set_caption("Natural Selection")
+        self.size = 700                                                 # Window size (square)
+        self.display = pygame.display.set_mode((self.size, self.size))  # Creates our window
+        pygame.display.set_caption("Natural Selection")                 # Gives window a name
      
-        self.population = []
+        self.population = []    # Contains our individuals, could later make this a class
 
     def run(self):
         """ Main loop """
-        self.spawn(15)
+        self.spawn(15)      # Creates 15 individuals
 
         run = True
         while run:
@@ -44,13 +44,15 @@ class Simulation():
 
     def draw(self):
         """ Draws each frame """
-        self.display.fill((0, 0, 0))
+        self.display.fill((0, 0, 0))        # Black background
 
-        for individual in self.population:
+        for individual in self.population:  # Draw all the individuals
             individual.draw(self.display)
-        pygame.display.update()
+        pygame.display.update()             # Updates the display window
 
 
+# Is only executed if this file is the file that have been run.
+# This is common practice in python
 if __name__ == '__main__':
     simulation = Simulation()
     simulation.run()
